@@ -1,0 +1,112 @@
+{
+  "name": "@example/reduxhoc",
+  "version": "0.1.0",
+  "description": "Example Redux HOC library",
+  "main": "index.js",
+  "module": "esm/index.mjs",
+  "sideEffects": false,
+  "homepage": "https://github.com/mattcarlotta/reduxhoc#readme",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "ComponentBranch/index.js",
+    "ComponentBranch/index.d.ts",
+    "esm"
+  ],
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./ComponentBranch": "./ComponentBranch/index.js",
+    "./esm": "./esm/index.mjs",
+    "./esm/ComponentBranch": "./esm/ComponentBranch/index.mjs"
+  },
+  "scripts": {
+    "build": "npm run remove:build && tsc --p ./ts/tsconfig.cjs.json && ts-node ./utils/compress.ts",
+    "build:esm": "npm run remove:esm && rollup -c",
+    "build:types": "npm run remove:types && tsc --p ./ts/tsconfig.types.json",
+    "lint": "eslint ./ --ext .ts,.js",
+    "lint:types": "tsd",
+    "prepare": "npm run build && npm run build:esm",
+    "remove": "ts-node ./utils/removeBuild.ts",
+    "remove:all": "npm run remove:build && npm run remove:esm",
+    "remove:build": "npm run remove && npm run remove:types",
+    "remove:esm": "rimraf esm",
+    "remove:types": "ts-node ./utils/removeTypes.ts",
+    "test": "jest --config ./jest.json",
+    "test:cov": "jest --config ./jest.json --coverage",
+    "test:watch": "jest --config ./jest.json --watchAll"
+  },
+  "tsd": {
+    "directory": "tests",
+    "compilerOptions": {
+      "module": "esnext",
+      "target": "esnext",
+      "baseUrl": ".",
+      "paths": {
+        "@example/reduxhoc": [
+          "."
+        ],
+        "@example/reduxhoc/*": [
+          "./*"
+        ]
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mattcarlotta/example-env.git"
+  },
+  "keywords": [
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
+  ],
+  "author": "Matt Carlotta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattcarlotta/example-env/issues"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "devDependencies": {
+    "@noshot/utils": "^1.0.1",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "browserslist": "^4.16.6",
+    "enzyme": "^3.11.0",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1",
+    "react-redux": "^7.2.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.51.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "terser": "^5.7.0",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "tsd": "^0.17.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.0.0 || ^17.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0",
+    "react-redux": "^7.0.0"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}

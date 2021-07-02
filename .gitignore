@@ -1,0 +1,6 @@
+*.log*
+node_modules
+coverage
+.cc_token
+esm
+index.js

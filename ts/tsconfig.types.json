@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "declaration": true
+  },
+  "include": ["../*.ts"],
+  "exclude": [
+    "__tests__",
+    ".github",
+    "coverage",
+    "node_modules",
+    "esm",
+    "tests",
+    "ts",
+    "utils"
+  ]
+}
