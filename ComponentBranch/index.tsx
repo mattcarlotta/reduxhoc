@@ -18,7 +18,7 @@ export const ComponentBranch = (
   };
 
   const mapStateToProps = (state: any) => ({
-    toggles: state.toggles
+    toggles: state
   });
 
   return connect<ReturnType<typeof mapStateToProps>>(mapStateToProps)(
