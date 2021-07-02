@@ -10,8 +10,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@example/env": ["../"],
-      "@example/env/*": ["../*"]
+      "@example/reduxhoc": ["../"],
+      "@example/reduxhoc/*": ["../*"]
     }
   }
 }
