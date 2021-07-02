@@ -1,12 +1,11 @@
-/* eslint-disable no-use-before-define */
 import * as React from "react";
 import { connect } from "react-redux";
 
 export const ComponentBranch = (
   testFunc: (toggles: any) => boolean,
-  ComponentA: React.ComponentType,
-  ComponentB: React.ComponentType
-): React.ComponentType => {
+  ComponentA: React.ComponentType<any>,
+  ComponentB: React.ComponentType<any>
+): React.ComponentType<any> => {
   const WithToggleComponent = ({
     toggles,
     ...rest

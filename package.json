@@ -1,36 +1,30 @@
 {
   "name": "@example/reduxhoc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Example Redux HOC library",
   "main": "index.js",
-  "module": "esm/index.mjs",
   "sideEffects": false,
   "homepage": "https://github.com/mattcarlotta/reduxhoc#readme",
   "files": [
     "index.js",
     "index.d.ts",
     "ComponentBranch/index.js",
-    "ComponentBranch/index.d.ts",
-    "esm"
+    "ComponentBranch/index.d.ts"
   ],
   "types": "./index.d.ts",
   "exports": {
     ".": "./index.js",
-    "./ComponentBranch": "./ComponentBranch/index.js",
-    "./esm": "./esm/index.mjs",
-    "./esm/ComponentBranch": "./esm/ComponentBranch/index.mjs"
+    "./ComponentBranch": "./ComponentBranch/index.js"
   },
   "scripts": {
     "build": "npm run remove:build && tsc --p ./ts/tsconfig.cjs.json && ts-node ./utils/compress.ts",
-    "build:esm": "npm run remove:esm && rollup -c",
     "build:types": "npm run remove:types && tsc --p ./ts/tsconfig.types.json",
     "lint": "eslint ./ --ext .ts,.js",
     "lint:types": "tsd",
-    "prepare": "npm run build && npm run build:esm",
+    "prepare": "npm run build",
     "remove": "ts-node ./utils/removeBuild.ts",
-    "remove:all": "npm run remove:build && npm run remove:esm",
+    "remove:all": "npm run remove:build",
     "remove:build": "npm run remove && npm run remove:types",
-    "remove:esm": "rimraf esm",
     "remove:types": "ts-node ./utils/removeTypes.ts",
     "test": "jest --config ./jest.json",
     "test:cov": "jest --config ./jest.json --coverage",
