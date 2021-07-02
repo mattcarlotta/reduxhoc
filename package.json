@@ -1,6 +1,6 @@
 {
   "name": "@example/reduxhoc",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Example Redux HOC library",
   "main": "index.js",
   "sideEffects": false,

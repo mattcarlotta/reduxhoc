@@ -6,14 +6,14 @@ export const ComponentBranch = (
   ComponentA: React.ComponentType<any>,
   ComponentB: React.ComponentType<any>
 ): React.ComponentType<any> => {
-  const WithToggleComponent = ({
-    toggles,
-    ...rest
-  }: any): React.ReactElement => {
+  const WithToggleComponent = (
+    { toggles }: any,
+    ...props: any
+  ): React.ReactElement => {
     return testFunc(toggles) ? (
-      <ComponentA {...rest} />
+      <ComponentA {...props} />
     ) : (
-      <ComponentB {...rest} />
+      <ComponentB {...props} />
     );
   };
 
