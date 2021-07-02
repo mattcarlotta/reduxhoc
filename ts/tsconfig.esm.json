@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "outDir": "./esm"
+    "outDir": "./esm",
+    "jsx": "react"
   },
   "include": ["../*.ts"],
   "exclude": [
